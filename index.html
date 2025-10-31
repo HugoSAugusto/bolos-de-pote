@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monte seu Bolo de Pote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Monte seu bolo de pote personalizado: escolha o tamanho do pote, camadas de bolo, recheios e cobertura. Veja o preço final e finalize pelo WhatsApp." />
+    <meta name="keywords" content="bolo de pote, confeitaria, montar bolo, sobremesa, delivery, doces" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🍰</text></svg>">
+    <style>
+        /* Suaviza o scroll até o resumo no mobile */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="min-h-screen bg-neutral-50 text-neutral-900">
+    <header class="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-neutral-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-xl md:text-2xl font-bold">Monte seu <span class="text-pink-600">Bolo de Pote</span></h1>
+            <a href="#resumo" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-600 text-white font-medium hover:bg-pink-700 transition">Ver resumo</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <!-- MEDIDAS / TAMANHOS DE POTE -->
+        <section class="mb-6" aria-labelledby="potes-title">
+            <h2 id="potes-title" class="text-lg md:text-xl font-semibold mb-3">Escolha o tamanho do pote</h2>
+            <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                <!-- Os valores são exemplos; troque à vontade -->
+                <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
+                    <div>
+                        <input type="radio" name="pote" value="250" data-price="12" class="sr-only" checked>
+                        <p class="font-semibold">Pote 250 ml</p>
+                        <p class="text-sm text-neutral-600">Indicado para 1 pessoa</p>
+                    </div>
+                    <span class="text-pink-700 font-bold" data-price-label>R$ 12,00</span>
+                </label>
+
+                <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
+                    <div>
+                        <input type="radio" name="pote" value="400" data-price="18" class="sr-only">
+                        <p class="font-semibold">Pote 400 ml</p>
+                        <p class="text-sm text-neutral-600">Serve bem 1 pessoa, ou 2 leves</p>
+                    </div>
+                    <span class="text-pink-700 font-bold" data-price-label>R$ 18,00</span>
+                </label>
+                <!-- Exemplo de terceiro tamanho (opcional) -->
+                <!-- <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
+                    <div>
+                        <input type="radio" name="pote" value="500" data-price="22" class="sr-only">
+                        <p class="font-semibold">Pote 500 ml</p>
+                        <p class="text-sm text-neutral-600">Para dividir</p>
+                    </div>
+                    <span class="text-pink-700 font-bold" data-price-label>R$ 22,00</span>
+                </label> -->
+            </div>
+        </section>
+
+        <!-- CAMADAS -->
+        <section class="grid grid-cols-1 md:grid-cols-5 gap-4" aria-labelledby="montagem-title">
+            <h2 id="montagem-title" class="sr-only">Escolha as camadas</h2>
+
+            <!-- 1) BOLO (massa) -->
+            <article class="border rounded-2xl bg-white p-4">
+                <h3 class="font-semibold mb-1">1) Massa – 1ª camada</h3>
+                <p class="text-sm text-neutral-600 mb-3">Escolha a base do seu bolo</p>
+                    <div class="space-y-2" id="col-bolo-1">
+                    <!-- Itens renderizados por JS -->
+                </div>
+            </article>
+
+            <!-- 2) RECHEIO -->
+            <article class="border rounded-2xl bg-white p-4">
+                <h3 class="font-semibold mb-1">2) Recheio – 1ª camada</h3>
+                <p class="text-sm text-neutral-600 mb-3">Escolha um recheio</p>
+                <div class="space-y-2" id="col-recheio-1"></div>
+            </article>
+
+            <!-- 3) BOLO (massa) novamente -->
+            <article class="border rounded-2xl bg-white p-4">
+                <h3 class="font-semibold mb-1">3) Massa – 2ª camada</h3>
+                <p class="text-sm text-neutral-600 mb-3">Selecione novamente a massa</p>
+                <div class="space-y-2" id="col-bolo-2"></div>
+            </article>
+
+            <!-- 4) RECHEIO novamente -->
+            <article class="border rounded-2xl bg-white p-4">
+                <h3 class="font-semibold mb-1">4) Recheio – 2ª camada</h3>
+                <p class="text-sm text-neutral-600 mb-3">Escolha o segundo recheio</p>
+                <div class="space-y-2" id="col-recheio-2"></div>
+            </article>
+
+            <!-- 5) COBERTURA -->
+            <article class="border rounded-2xl bg-white p-4">
+                <h3 class="font-semibold mb-1">5) Cobertura</h3>
+                <p class="text-sm text-neutral-600 mb-3">Finalize com a cobertura</p>
+                <div class="space-y-2" id="col-cobertura"></div>
+            </article>
+        </section>
+
+        <!-- OBSERVAÇÕES E RESUMO -->
+        <section id="resumo" class="mt-6 grid gap-4 md:grid-cols-3">
+            <div class="md:col-span-2 border rounded-2xl bg-white p-4">
+                <label for="obs" class="block font-medium mb-2">Observações (opcional)</label>
+
+                <textarea id="obs" rows="4" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Ex.: sem leite, pouco açúcar, adicionar morangos extras, retirar granulado..."></textarea>
+            </div>
+
+            <aside class="border rounded-2xl bg-white p-4 flex flex-col gap-3">
+                <h3 class="font-semibold">Resumo do pedido</h3>
+                <ul class="text-sm text-neutral-700 space-y-1" id="lista-resumo">
+                <!-- preenchido via JS -->
+                </ul>
+                <div class="flex items-center justify-between pt-2 border-t">
+                    <span class="font-semibold">Total</span>
+                    <span id="total" class="text-xl font-extrabold text-pink-700">R$ 0,00</span>
+                </div>
+                <button id="btn-whats" class="mt-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition">
+                    Finalizar no WhatsApp
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M.057 24l1.687-6.163a11.94 11.94 0 01-1.62-6.003C.122 5.37 5.494 0 12.06 0c3.2 0 6.208 1.248 8.475 3.515a11.86 11.86 0 013.513 8.436c-.003 6.565-5.375 11.936-11.94 11.936a11.95 11.95 0 01-6.005-1.615L.057 24zM6.6 20.013c1.78.94 3.8 1.444 5.93 1.444 5.448 0 9.886-4.434 9.89-9.882.003-5.462-4.415-9.89-9.881-9.893-5.45 0-9.884 4.434-9.887 9.885a9.82 9.82 0 001.489 5.26l-.99 3.617 3.449-.931zm11.387-5.464c-.074-.124-.271-.198-.567-.346-.296-.148-1.758-.868-2.03-.967-.272-.099-.47-.148-.667.148-.197.296-.767.966-.94 1.163-.173.198-.346.223-.642.075-.296-.148-1.248-.459-2.378-1.466-.879-.782-1.473-1.748-1.646-2.044-.173-.296-.018-.456.13-.604.134-.133.296-.346.444-.519.148-.173.197-.296.296-.494.099-.198.05-.371-.025-.519-.074-.148-.667-1.611-.914-2.207-.24-.579-.487-.5-.667-.51l-.567-.01c-.198 0-.519.074-.792.371s-1.04 1.017-1.04 2.479 1.065 2.876 1.213 3.074c.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.227 1.36.195 1.873.118.571-.085 1.758-.719 2.007-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+                </button>
+                <p class="text-xs text-neutral-500">Ao clicar, abriremos o WhatsApp com seu pedido preenchido.</p>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="mt-10 py-8 text-center text-sm text-neutral-600">
+        <p>© <span id="year"></span> Confeitaria – Monte seu Bolo de Pote</p>
+    </footer>
+    <script src="js/escolhas.js"></script>
+    <script>
+    // WhatsApp
+    const WHATSAPP_NUMBER = "5521978926365";
+
+    // ====== HELPERS ======
+    const fmt = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    function renderGrupo(radioname, itens, containerId, checkedIndex = 0) {
+      const el = document.getElementById(containerId);
+      el.innerHTML = itens.map((opt, idx) => `
+        <label class="flex items-center justify-between gap-3 border rounded-xl p-3 hover:shadow cursor-pointer">
+          <div class="flex items-center gap-3">
+            <input type="radio" name="${radioname}" value="${opt.id}" data-price="${opt.preco}" class="h-4 w-4 text-pink-600" ${idx === checkedIndex ? 'checked' : ''}>
+            <span class="font-medium">${opt.nome}</span>
+          </div>
+          <span class="text-pink-700 font-semibold">${fmt(opt.preco)}</span>
+        </label>
+      `).join('');
+    }
+
+    function getCheckedPrice(name) {
+      const r = document.querySelector(`input[name="${name}"]:checked`);
+      return r ? Number(r.dataset.price) : 0;
+    }
+
+    function getCheckedLabel(name, lista) {
+      const r = document.querySelector(`input[name="${name}"]:checked`);
+      if (!r) return null;
+      const found = lista.find(i => i.id === r.value);
+      return found ? `${found.nome} (${fmt(found.preco)})` : null;
+    }
+
+    function getPoteInfo() {
+      const r = document.querySelector('input[name="pote"]:checked');
+      if (!r) return { ml: 0, preco: 0 };
+      return { ml: Number(r.value), preco: Number(r.dataset.price) };
+    }
+
+    function atualizarResumoETotal() {
+      const pote = getPoteInfo();
+      const pBolo1 = getCheckedPrice('bolo1');
+      const pBolo2 = getCheckedPrice('bolo2');
+      const pRch1  = getCheckedPrice('recheio1');
+      const pRch2  = getCheckedPrice('recheio2');
+      const pCob   = getCheckedPrice('cobertura');
+
+      const total = pote.preco + pBolo1 + pBolo2 + pRch1 + pRch2 + pCob;
+
+      document.getElementById('total').textContent = fmt(total);
+
+      const lista = document.getElementById('lista-resumo');
+      lista.innerHTML = `
+        <li>Pote: <strong>${pote.ml} ml</strong> – ${fmt(pote.preco)}</li>
+        <li>1ª Massa: <strong>${getCheckedLabel('bolo1', massas) || '-'}</strong></li>
+        <li>1º Recheio: <strong>${getCheckedLabel('recheio1', recheios) || '-'}</strong></li>
+        <li>2ª Massa: <strong>${getCheckedLabel('bolo2', massas) || '-'}</strong></li>
+        <li>2º Recheio: <strong>${getCheckedLabel('recheio2', recheios) || '-'}</strong></li>
+        <li>Cobertura: <strong>${getCheckedLabel('cobertura', coberturas) || '-'}</strong></li>
+      `;
+    }
+
+    function montarMensagemWhatsApp() {
+      const pote = getPoteInfo();
+      const obs = (document.getElementById('obs').value || '').trim();
+      const total = document.getElementById('total').textContent;
+
+      const linhas = [
+        '*Pedido – Bolo de Pote*',
+        `• Pote: ${pote.ml} ml (${fmt(pote.preco)})`,
+        `• 1ª Massa: ${getCheckedLabel('bolo1', massas) || '-'}`,
+        `• 1º Recheio: ${getCheckedLabel('recheio1', recheios) || '-'}`,
+        `• 2ª Massa: ${getCheckedLabel('bolo2', massas) || '-'}`,
+        `• 2º Recheio: ${getCheckedLabel('recheio2', recheios) || '-'}`,
+        `• Cobertura: ${getCheckedLabel('cobertura', coberturas) || '-'}`,
+        obs ? `• Observações: ${obs}` : null,
+        `\nTotal: *${total}*`
+      ].filter(Boolean);
+
+      const msg = encodeURIComponent(linhas.join('\n'));
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    }
+
+    function bindEvents() {
+      document.body.addEventListener('change', (e) => {
+        if (
+          e.target.matches('input[name="pote"]') ||
+          e.target.matches('input[name="bolo1"]') ||
+          e.target.matches('input[name="recheio1"]') ||
+          e.target.matches('input[name="bolo2"]') ||
+          e.target.matches('input[name="recheio2"]') ||
+          e.target.matches('input[name="cobertura"]')
+        ) {
+          atualizarResumoETotal();
+        }
+      });
+
+      document.getElementById('btn-whats').addEventListener('click', () => {
+        const url = montarMensagemWhatsApp();
+        window.open(url, '_blank');
+      });
+    }
+
+    // ====== BOOT ======
+    (function init() {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Renderiza grupos com uma opção pré-selecionada
+      renderGrupo('bolo1', massas, 'col-bolo-1', 0);
+      renderGrupo('recheio1', recheios, 'col-recheio-1', 0);
+      renderGrupo('bolo2', massas, 'col-bolo-2', 1);
+      renderGrupo('recheio2', recheios, 'col-recheio-2', 1);
+      renderGrupo('cobertura', coberturas, 'col-cobertura', 0);
+
+      bindEvents();
+      atualizarResumoETotal();
+    })();
+  </script>
+</body>
+</html>
