@@ -10,15 +10,15 @@ const recheios = [
     { id: 'rch-beijinho',   nome: 'Beijinho',      preco: 0 },
     { id: 'rch-doceleite',  nome: 'Doce De Leite', preco: 0 },
     { id: 'rch-ninho',      nome: 'Creme De Ninho', preco: 0 },
-    { id: 'cob-pacoca',  nome: 'Paçoca',  preco: 0 },
-    { id: 'cob-morangos',  nome: 'Morangos',  preco: 2.00 },
+    // { id: 'cob-pacoca',  nome: 'Paçoca',  preco: 0 },
+    // { id: 'cob-morangos',  nome: 'Morangos',  preco: 2.00 },
     { id: 'cob-nutella',  nome: 'Nutella',  preco: 2.00 },
     { id: 'cob-ferreiro',  nome: 'Creme Ferreiro Rochette',  preco: 3.00 },
     { id: 'cob-kinder',  nome: 'Kinder Bueno',  preco: 3.00 },
-    { id: 'cob-kitkat',  nome: 'Kit-Kat',  preco: 3.00 },
+    // { id: 'cob-kitkat',  nome: 'Kit-Kat',  preco: 3.00 },
     { id: 'cob-limao',  nome: 'Mousse De Limão',  preco: 0 },
     { id: 'cob-maracuja',  nome: 'Mousse De Maracujá',  preco: 2.00 },
-    { id: 'cob-mms',  nome: 'M & M',  preco: 3.00 },
+    // { id: 'cob-mms',  nome: 'M & M',  preco: 3.00 },
 ];
 
 const coberturas = [
