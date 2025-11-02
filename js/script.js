@@ -78,7 +78,6 @@ function montarMensagemWhatsApp() {
         obs ? `• Observações: ${obs}` : null,
         `\nTotal: *${total}*`
     ].filter(Boolean);
-
     const msg = encodeURIComponent(linhas.join('\n'));
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
@@ -93,6 +92,20 @@ function bindEvents() {
             e.target.matches('input[name="recheio2"]') ||
             e.target.matches('input[name="cobertura"]')
         ) {
+            if (window.innerWidth < 768) {
+                const card = e.target.closest('article');
+                const next = card?.nextElementSibling;
+                if (next) {
+                    setTimeout(() => {
+                        next.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        next.classList.add('highlight-next');
+                        setTimeout(() => next.classList.remove('highlight-next'), 1000);
+                    }, 200);
+                }
+            }
             atualizarResumoETotal();
         }
     });

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Monte seu Bolo de Pote</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/input.css">
     <meta name="description" content="Monte seu bolo de pote personalizado: escolha o tamanho do pote, camadas de bolo, recheios e cobertura. Veja o preço final e finalize pelo WhatsApp." />
     <meta name="keywords" content="bolo de pote, confeitaria, montar bolo, sobremesa, delivery, doces" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🍰</text></svg>">
     <style>
-        /* Suaviza o scroll até o resumo no mobile */
-        html { scroll-behavior: smooth; }
+        
     </style>
 </head>
 <body class="min-h-screen bg-neutral-50 text-neutral-900">
@@ -26,33 +26,21 @@
         <section class="mb-6" aria-labelledby="potes-title">
             <h2 id="potes-title" class="text-lg md:text-xl font-semibold mb-3">Escolha o tamanho do pote</h2>
             <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-                <!-- Os valores são exemplos; troque à vontade -->
                 <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
-                    <div>
-                        <input type="radio" name="pote" value="250" data-price="12" class="sr-only" checked>
+                    <div class="flex items-center gap-3">
+                        <input type="radio" name="pote" value="250" data-price="12" class="h-4 w-4 text-pink-600 focus:ring-pink-500" checked>
                         <p class="font-semibold">Pote 250 ml</p>
-                        <p class="text-sm text-neutral-600">Indicado para 1 pessoa</p>
                     </div>
-                    <span class="text-pink-700 font-bold" data-price-label>R$ 12,00</span>
+                    <span class="text-pink-700 font-bold" data-price-label>R$ 8,00</span>
                 </label>
 
                 <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
-                    <div>
-                        <input type="radio" name="pote" value="400" data-price="18" class="sr-only">
+                    <div class="flex items-center gap-3">
+                        <input type="radio" name="pote" value="400" data-price="18" class="h-4 w-4 text-pink-600 focus:ring-pink-500" checked>
                         <p class="font-semibold">Pote 400 ml</p>
-                        <p class="text-sm text-neutral-600">Serve bem 1 pessoa, ou 2 leves</p>
                     </div>
                     <span class="text-pink-700 font-bold" data-price-label>R$ 18,00</span>
                 </label>
-                <!-- Exemplo de terceiro tamanho (opcional) -->
-                <!-- <label class="flex items-center justify-between gap-4 border rounded-xl p-4 bg-white hover:shadow transition cursor-pointer">
-                    <div>
-                        <input type="radio" name="pote" value="500" data-price="22" class="sr-only">
-                        <p class="font-semibold">Pote 500 ml</p>
-                        <p class="text-sm text-neutral-600">Para dividir</p>
-                    </div>
-                    <span class="text-pink-700 font-bold" data-price-label>R$ 22,00</span>
-                </label> -->
             </div>
         </section>
 
@@ -65,7 +53,6 @@
                 <h3 class="font-semibold mb-1">1) Massa – 1ª camada</h3>
                 <p class="text-sm text-neutral-600 mb-3">Escolha a base do seu bolo</p>
                     <div class="space-y-2" id="col-bolo-1">
-                    <!-- Itens renderizados por JS -->
                 </div>
             </article>
 
@@ -109,7 +96,6 @@
             <aside class="border rounded-2xl bg-white p-4 flex flex-col gap-3">
                 <h3 class="font-semibold">Resumo do pedido</h3>
                 <ul class="text-sm text-neutral-700 space-y-1" id="lista-resumo">
-                <!-- preenchido via JS -->
                 </ul>
                 <div class="flex items-center justify-between pt-2 border-t">
                     <span class="font-semibold">Total</span>
@@ -125,15 +111,10 @@
     </main>
 
     <footer class="mt-10 py-8 text-center text-sm text-neutral-600">
-        <p>© <span id="year"></span> Confeitaria – Monte seu Bolo de Pote</p>
+        <p>© <span id="year"></span> Confeitaria – Monte seu Bolo de Pote</p><br><p>Feito por <a href="">HugoSAugusto</a></p>
     </footer>
 
     <script src="js/escolhas.js"></script>
     <script src="js/script.js"></script>
-
-    <script>
-        // WhatsApp
-        
-    </script>
 </body>
 </html>
