@@ -26,7 +26,7 @@ const coberturas = [
     // { id: 'cob-chantilly', nome: 'Chantilly', preco: 0 },
     { id: 'cob-sem',   nome: 'Sem Cobertura', preco: 0 },
     { id: 'cob-granulado', nome: 'Granulado', preco: 0 },
-    { id: 'cob-pacoca',  nome: 'Paçoca',  preco: 1.00 },
+    { id: 'cob-pacoca',  nome: 'Paçoca',  preco: 0 },
     { id: 'cob-morangos',  nome: 'Morangos',  preco: 1.00 },
     { id: 'cob-ferreiro',  nome: 'Creme Ferreiro Rochette',  preco: 2.00 },
     { id: 'cob-kinder',  nome: 'Kinder Bueno',  preco: 2.00 },
